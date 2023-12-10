@@ -1,0 +1,28 @@
+[package]
+name = "app"
+version = "0.1.0"
+edition = "2021"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+msp430 = "0.4.1"
+msp430-rt = "0.4.0"
+panic-msp430 = "0.4.0"
+
+[dependencies.msp430-periph]
+version = "0.0.5"
+features = [
+    "rt",
+    "msp430fr5994",
+    "wdt_a",
+    "pmm_3670",
+    "portb_3i1",
+    "portb_3i2",
+]
+
+[profile.release]
+opt-level = "s"
+codegen-units = 1
+lto = "fat"
+
+
